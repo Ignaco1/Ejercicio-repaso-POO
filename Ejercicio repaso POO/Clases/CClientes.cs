@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +9,8 @@ namespace Ejercicio_repaso_POO.Clases
     public class CClientes
     {
         public int CODIGO { get; set; }
+
+        public string TIPO { get; set; }
 
         public string DNI { get; set; }
 
