@@ -7,7 +7,7 @@ namespace Ejercicio_repaso_POO
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form_registro_Load(object sender, EventArgs e)
         {
             cb_tipocuenta.Items.Add("Caja de ahorro");
             cb_tipocuenta.Items.Add("Cuenta Corriente");

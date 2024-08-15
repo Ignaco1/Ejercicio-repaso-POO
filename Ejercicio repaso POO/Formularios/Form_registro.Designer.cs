@@ -189,7 +189,7 @@
             Controls.Add(label1);
             Name = "Form_registro";
             Text = "Form de registro de clientes";
-            Load += Form1_Load;
+            Load += Form_registro_Load;
             ResumeLayout(false);
             PerformLayout();
         }
