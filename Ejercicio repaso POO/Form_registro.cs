@@ -11,6 +11,7 @@ namespace Ejercicio_repaso_POO
         {
             cb_tipocuenta.Items.Add("Caja de ahorro");
             cb_tipocuenta.Items.Add("Cuenta Corriente");
+            hola
         }
     }
 }
