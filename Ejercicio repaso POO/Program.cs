@@ -1,3 +1,5 @@
+using Ejercicio_repaso_POO.Formularios;
+
 namespace Ejercicio_repaso_POO
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace Ejercicio_repaso_POO
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form_registro());
+            Application.Run(new Form_inicio());
         }
     }
 }
