@@ -41,6 +41,8 @@
             textBox4 = new TextBox();
             textBox5 = new TextBox();
             button1 = new Button();
+            label7 = new Label();
+            textBox6 = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -142,18 +144,36 @@
             // 
             // button1
             // 
-            button1.Location = new Point(212, 305);
+            button1.Location = new Point(212, 330);
             button1.Name = "button1";
             button1.Size = new Size(120, 36);
             button1.TabIndex = 12;
             button1.Text = "Registrar cliente";
             button1.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(12, 280);
+            label7.Name = "label7";
+            label7.Size = new Size(36, 15);
+            label7.TabIndex = 13;
+            label7.Text = "Edad:";
+            // 
+            // textBox6
+            // 
+            textBox6.Location = new Point(149, 277);
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(121, 23);
+            textBox6.TabIndex = 14;
+            // 
             // Form_registro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(344, 353);
+            ClientSize = new Size(344, 378);
+            Controls.Add(textBox6);
+            Controls.Add(label7);
             Controls.Add(button1);
             Controls.Add(textBox5);
             Controls.Add(textBox4);
@@ -189,5 +209,7 @@
         private TextBox textBox4;
         private TextBox textBox5;
         private Button button1;
+        private Label label7;
+        private TextBox textBox6;
     }
 }
