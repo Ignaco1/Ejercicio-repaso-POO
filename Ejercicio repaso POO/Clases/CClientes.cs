@@ -10,8 +10,6 @@ namespace Ejercicio_repaso_POO.Clases
     {
         public int CODIGO { get; set; }
 
-        public string TIPO { get; set; }
-
         public string DNI { get; set; }
 
         public string NOMBRE { get; set; }
