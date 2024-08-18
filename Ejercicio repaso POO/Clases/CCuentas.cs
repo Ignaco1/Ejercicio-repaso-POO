@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace Ejercicio_repaso_POO.Clases
 {
-    public class CClientes
+    public class CCuentas
     {
+        public int CODIGO {  get; set; }
+
+        public string TIPO { get; set; }
+
         public string DNI { get; set; }
 
         public string NOMBRE { get; set; }
@@ -33,17 +37,16 @@ namespace Ejercicio_repaso_POO.Clases
 
             if (DateTime.Now.Month < FECHA.Month)
             {
-                edad-=1;
+                edad -= 1;
             }
             else if (DateTime.Now.Month == FECHA.Month && DateTime.Now.Day < FECHA.Day)
             {
-                edad-=1;
+                edad -= 1;
             }
 
             return edad;
 
 
         }
-
     }
-}   
+}

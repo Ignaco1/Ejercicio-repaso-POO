@@ -110,6 +110,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(6, 22);
             dataGridView1.Name = "dataGridView1";
@@ -163,35 +164,36 @@
             // 
             textBox6.Location = new Point(157, 222);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(100, 23);
+            textBox6.Size = new Size(116, 23);
             textBox6.TabIndex = 10;
             // 
             // textBox5
             // 
             textBox5.Location = new Point(157, 187);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(100, 23);
+            textBox5.Size = new Size(116, 23);
             textBox5.TabIndex = 10;
+            textBox5.Text = "//";
             // 
             // textBox4
             // 
             textBox4.Location = new Point(157, 151);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
+            textBox4.Size = new Size(116, 23);
             textBox4.TabIndex = 9;
             // 
             // textBox3
             // 
             textBox3.Location = new Point(157, 111);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
+            textBox3.Size = new Size(116, 23);
             textBox3.TabIndex = 8;
             // 
             // textBox2
             // 
             textBox2.Location = new Point(157, 73);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
+            textBox2.Size = new Size(116, 23);
             textBox2.TabIndex = 7;
             // 
             // label6
@@ -243,7 +245,7 @@
             // 
             textBox1.Location = new Point(157, 35);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
+            textBox1.Size = new Size(116, 23);
             textBox1.TabIndex = 1;
             // 
             // label1
