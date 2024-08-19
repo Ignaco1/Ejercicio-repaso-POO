@@ -26,6 +26,7 @@ namespace Ejercicio_repaso_POO.Formularios
         {
             cb_opc.Items.Add("Ver clientes");
             cb_opc.Items.Add("Ver cuentas");
+            cb_opc.Items.Add("Ver operaciónes");
         }
 
         private void btn_aceptar_Click(object sender, EventArgs e)

@@ -15,7 +15,8 @@ namespace Ejercicio_repaso_POO.Formularios
     {
         string variable = "";
         CListas clase_listas = new CListas();
-       
+        int indice;
+
         public Form_clientes()
         {
             InitializeComponent();
@@ -55,7 +56,50 @@ namespace Ejercicio_repaso_POO.Formularios
 
         private void btn_mod_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione a uno de los clientes", "ERROR");
+                return;
+            }
 
+            variable = "M";
+            CClientes cliente1 = clase_listas.Lclientes[indice];
+
+            PASAJE(cliente1);
+
+            MODO_CARGA();
+
+
+        }
+
+        public void PASAJE(CClientes cliente1)
+        {
+            textBox1.Text = cliente1.DNI.Replace(".", "");
+            textBox2.Text = cliente1.NOMBRE;
+            textBox3.Text = cliente1.TELEFONO;
+            textBox4.Text = cliente1.EMAIL;
+            textBox5.Text = cliente1.FECHA.ToString("dd/MM/yyyy");
+            textBox6.Text = Convert.ToString(cliente1.EDAD);
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione a uno de los clientes", "ERROR");
+                return;
+            }
+
+            CClientes cliente2 = clase_listas.Lclientes[indice];
+
+            DialogResult respuesta = MessageBox.Show("Esta seguro que deseea eliminar al cliente:\n\nDNI: " + cliente2.DNI + "\n\nNombre: " + cliente2.NOMBRE + "\n\nEmail: " + cliente2.EMAIL, "AVISO", MessageBoxButtons.YesNo);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                clase_listas.Lclientes.Remove(cliente2);
+            }
+
+            ARMA_GRILLA();
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -66,7 +110,13 @@ namespace Ejercicio_repaso_POO.Formularios
 
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Ingrese correctamente numero de DNI del cliente", "ERROR");
+                MessageBox.Show("Ingrese correctamente el numero de DNI del cliente\n\nEJ:43495009", "ERROR");
+                return;
+            }
+
+            if (textBox1.Text.Length < 8)
+            {
+                MessageBox.Show("El numero de DNI ingresado es demasiado corto, ingrese un numero de DNI posible.\n\nEJ:46495234", "ERROR");
                 return;
             }
 
@@ -129,24 +179,37 @@ namespace Ejercicio_repaso_POO.Formularios
                 clase_listas.Lclientes.Add(clientes);
             }
 
+            if (variable == "M")
+            {
+                clientes = clase_listas.Lclientes[indice];
+                CARGA(clientes);
+
+            }
+
             ARMA_GRILLA();
             MODO_LISTA();
 
         }
 
-        private void btn_eliminar_Click(object sender, EventArgs e)
+
+        public void CARGA(CClientes clientes)
         {
+            clientes.DNI = textBox1.Text.Insert(2, ".").Insert(6, ".");
+            clientes.NOMBRE = textBox2.Text;
+            clientes.TELEFONO = textBox3.Text;
+            clientes.EMAIL = textBox4.Text;
+            clientes.FECHA = Convert.ToDateTime(textBox5.Text);
 
         }
 
         private void btn_volver_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-
+            MODO_LISTA();
         }
 
         public int ObtenerEdad()
@@ -166,6 +229,17 @@ namespace Ejercicio_repaso_POO.Formularios
             return edad;
 
 
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccione a uno de los clientes", "ERROR");
+                return;
+            }
+
+            indice = dataGridView1.CurrentRow.Index;
         }
     }
 }

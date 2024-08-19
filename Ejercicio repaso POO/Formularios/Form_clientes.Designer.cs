@@ -116,6 +116,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(885, 324);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // groupBox2
             // 

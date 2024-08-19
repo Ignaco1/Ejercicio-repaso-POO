@@ -16,37 +16,6 @@ namespace Ejercicio_repaso_POO.Clases
 
         public string NOMBRE { get; set; }
 
-        public string TELEFONO { get; set; }
-
-        public string EMAIL { get; set; }
-
-        public DateTime FECHA { get; set; }
-
-        public int EDAD
-        {
-            get
-            {
-                return ObtenerEdad();
-            }
-        }
-
-        public int ObtenerEdad()
-        {
-
-            int edad = DateTime.Now.Year - FECHA.Year;
-
-            if (DateTime.Now.Month < FECHA.Month)
-            {
-                edad -= 1;
-            }
-            else if (DateTime.Now.Month == FECHA.Month && DateTime.Now.Day < FECHA.Day)
-            {
-                edad -= 1;
-            }
-
-            return edad;
-
-
-        }
+        public double SALDO { get; set; }
     }
 }
