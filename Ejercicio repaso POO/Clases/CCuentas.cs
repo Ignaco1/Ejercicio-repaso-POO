@@ -8,7 +8,12 @@ namespace Ejercicio_repaso_POO.Clases
 {
     public class CCuentas
     {
-        public int CODIGO {  get; set; }
+        public string CODIGO {  get; set; }
+
+        public void ObtenerCod(string vari)
+        {
+            CODIGO = CCodigos.Codigo(vari);
+        }
 
         public string TIPO { get; set; }
 
@@ -17,5 +22,7 @@ namespace Ejercicio_repaso_POO.Clases
         public string NOMBRE { get; set; }
 
         public double SALDO { get; set; }
+
+        
     }
 }

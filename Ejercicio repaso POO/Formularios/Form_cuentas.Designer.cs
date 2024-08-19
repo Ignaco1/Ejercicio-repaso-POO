@@ -35,6 +35,8 @@
             btn_agregar = new Button();
             dataGridView1 = new DataGridView();
             groupBox2 = new GroupBox();
+            textBox4 = new TextBox();
+            label5 = new Label();
             btn_cancelar = new Button();
             btn_guardar = new Button();
             textBox3 = new TextBox();
@@ -86,7 +88,7 @@
             // 
             // btn_mod
             // 
-            btn_mod.Location = new Point(183, 391);
+            btn_mod.Location = new Point(178, 391);
             btn_mod.Name = "btn_mod";
             btn_mod.Size = new Size(139, 29);
             btn_mod.TabIndex = 3;
@@ -106,14 +108,18 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(6, 22);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(886, 353);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(textBox4);
+            groupBox2.Controls.Add(label5);
             groupBox2.Controls.Add(btn_cancelar);
             groupBox2.Controls.Add(btn_guardar);
             groupBox2.Controls.Add(textBox3);
@@ -130,6 +136,22 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Carga de datos";
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(139, 204);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(134, 23);
+            textBox4.TabIndex = 15;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(15, 37);
+            label5.Name = "label5";
+            label5.Size = new Size(104, 15);
+            label5.TabIndex = 14;
+            label5.Text = "Codigo de cuenta:";
             // 
             // btn_cancelar
             // 
@@ -153,21 +175,21 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(139, 162);
+            textBox3.Location = new Point(139, 157);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(134, 23);
             textBox3.TabIndex = 7;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(139, 119);
+            textBox2.Location = new Point(139, 114);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(134, 23);
             textBox2.TabIndex = 6;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(139, 76);
+            textBox1.Location = new Point(139, 34);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(134, 23);
             textBox1.TabIndex = 5;
@@ -175,7 +197,7 @@
             // cb_tipo
             // 
             cb_tipo.FormattingEnabled = true;
-            cb_tipo.Location = new Point(139, 37);
+            cb_tipo.Location = new Point(139, 73);
             cb_tipo.Name = "cb_tipo";
             cb_tipo.Size = new Size(134, 23);
             cb_tipo.TabIndex = 4;
@@ -183,7 +205,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(15, 165);
+            label4.Location = new Point(15, 207);
             label4.Name = "label4";
             label4.Size = new Size(39, 15);
             label4.TabIndex = 3;
@@ -192,7 +214,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(15, 122);
+            label3.Location = new Point(15, 160);
             label3.Name = "label3";
             label3.Size = new Size(107, 15);
             label3.TabIndex = 2;
@@ -201,7 +223,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(15, 79);
+            label2.Location = new Point(15, 117);
             label2.Name = "label2";
             label2.Size = new Size(83, 15);
             label2.TabIndex = 1;
@@ -210,11 +232,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(15, 40);
+            label1.Location = new Point(15, 76);
             label1.Name = "label1";
-            label1.Size = new Size(33, 15);
+            label1.Size = new Size(88, 15);
             label1.TabIndex = 0;
-            label1.Text = "Tipo:";
+            label1.Text = "Tipo de cuenta:";
             // 
             // Form_cuentas
             // 
@@ -252,5 +274,7 @@
         private ComboBox cb_tipo;
         private Button btn_cancelar;
         private Button btn_guardar;
+        private TextBox textBox4;
+        private Label label5;
     }
 }

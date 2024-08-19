@@ -102,6 +102,17 @@ namespace Ejercicio_repaso_POO.Formularios
             ARMA_GRILLA();
         }
 
+        public void LIMPIAR()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
+            textBox5.Text = "//";
+            textBox6.Text = "";
+            
+        }
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             CClientes clientes = new CClientes();
@@ -188,6 +199,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
             ARMA_GRILLA();
             MODO_LISTA();
+            LIMPIAR();
 
         }
 
@@ -210,6 +222,7 @@ namespace Ejercicio_repaso_POO.Formularios
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             MODO_LISTA();
+            LIMPIAR();
         }
 
         public int ObtenerEdad()

@@ -11,8 +11,10 @@ namespace Ejercicio_repaso_POO.Clases
         public CListas()
         {
             Lclientes = new List<CClientes>();
+            Lcuentas = new List<CCuentas>();
         }
 
         public List<CClientes> Lclientes { get; set; }
+        public List<CCuentas> Lcuentas { get; set; }
     }
 }
