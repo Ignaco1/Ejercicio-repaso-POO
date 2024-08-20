@@ -15,12 +15,14 @@ namespace Ejercicio_repaso_POO.Formularios
     public partial class Form_cuentas : Form
     {
         string variable;
-        CListas clase_listas = new CListas();
+        CListas clase_listas;
         int indice;
 
-        public Form_cuentas()
+        public Form_cuentas(CListas listas)
         {
             InitializeComponent();
+            clase_listas = listas;
+
             MODO_LISTA();
             textBox4.Enabled = false;
             textBox1.Enabled = false;
@@ -49,11 +51,12 @@ namespace Ejercicio_repaso_POO.Formularios
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = clase_listas.Lcuentas;
         }
-
+        
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             variable = "A";
             MODO_CARGA();
+            
         }
 
         private void btn_mod_Click(object sender, EventArgs e)
@@ -108,6 +111,54 @@ namespace Ejercicio_repaso_POO.Formularios
 
         }
 
+        private bool ValidaDniYNombre()
+        {
+            string dni = textBox2.Text.Insert(2, ".").Insert(6, ".");
+            string nombre = textBox3.Text.Trim();
+
+            foreach (CClientes cliente in clase_listas.Lclientes)
+            {
+                if (cliente.DNI == dni && cliente.NOMBRE.Equals(nombre, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool Validacaja()
+        {
+            string dni = textBox2.Text.Insert(2, ".").Insert(6, ".");
+            string tipo = cb_tipo.Text.Trim();
+
+            foreach (CCuentas cuentas in clase_listas.Lcuentas)
+            {
+                if (cuentas.DNI == dni && cuentas.TIPO.Equals(tipo, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private bool ValidaCuentaCorriente()
+        {
+            string dni = textBox2.Text.Insert(2, ".").Insert(6, ".");
+            string tipo = cb_tipo.Text.Trim();
+
+            foreach (CCuentas cuentas in clase_listas.Lcuentas)
+            {
+                if (cuentas.DNI == dni && cuentas.TIPO.Equals(tipo, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             CCuentas cuenta = new CCuentas();
@@ -125,22 +176,6 @@ namespace Ejercicio_repaso_POO.Formularios
                 MessageBox.Show("Ingrese correctamente el numero de DNI del titular la de la cuenta\n\nEJ:43495009", "ERROR");
                 return;
             }
-            
-            bool ValidaDni()
-            {
-                string dni = textBox2.Text.Insert(2, ".").Insert(6, ".");
-
-                foreach (CClientes clientes in clase_listas.Lclientes)
-                {
-                    if (clientes.DNI == dni)
-                    {
-                        return true;
-                       
-                    }
-                }
-
-                return false;
-            }
 
             if (textBox2.Text.Length < 8)
             {
@@ -154,21 +189,63 @@ namespace Ejercicio_repaso_POO.Formularios
                 return;
             }
 
-            if (!ValidaDni())
+            if (variable == "A")
             {
-                MessageBox.Show("Este cliente no se encuentra registrado en el sistema.\n\nPara poder continuar, el cliente debe ser registrado");
-                return;
+                if (!ValidaDniYNombre())
+                {
+                    MessageBox.Show("Este cliente no se encuentra registrado en el sistema.\n\nPara poder continuar, el cliente debe ser registrado", "ERROR");
+                    return;
+                }
+
+                if (cb_tipo.Text == "Caja de ahorro")
+                {
+                    if (Validacaja())
+                    {
+                        MessageBox.Show("Este cliente ya tiene una caja de ahorro registrada a su nombre.\n\nSolo es posible tener una cuenta de cada tipo por persona.", "ERROR");
+                        return;
+                    }
+                }
+                else if (cb_tipo.Text == "Cuenta corriente")
+                {
+                    if (ValidaCuentaCorriente())
+                    {
+                        MessageBox.Show("Este cliente ya tiene una cuenta corriente registrada a su nombre.\n\nSolo es posible tener una cuenta de cada tipo por persona.", "ERROR");
+                        return;
+                    }
+                }
             }
+
 
             if (string.IsNullOrWhiteSpace(textBox3.Text))
             {
                 MessageBox.Show("Ingrese correctamente el nombre del titular de la cuenta", "ERROR");
                 return;
             }
+
+            bool ValidaLetras()
+            {
+                return textBox3.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
+            }
+
+            if(!ValidaLetras())
+            {
+                MessageBox.Show("Ingrese correctamente el nombre del titular de la cuenta.\n\nEste solo debe contener letras", "ERROR");
+                return;
+            }
+
             #endregion
 
             if (variable == "A")
             {
+                if (cb_tipo.Text == "Caja de ahorro")
+                {
+                    cuenta = new CCaja_de_ahorro();
+                }
+                else if (cb_tipo.Text == "Cuenta corriente")
+                {
+                    cuenta = new CCuenta_corriente();
+                }
+
                 CCodigos.SumarCont(cb_tipo.Text);
 
                 cuenta.ObtenerCod(cb_tipo.Text);
@@ -182,8 +259,7 @@ namespace Ejercicio_repaso_POO.Formularios
             if (variable == "M")
             {
                 cuenta = clase_listas.Lcuentas[indice];
-                CARGA(cuenta);
-                
+                CARGA(cuenta);             
             }
 
             ARMA_GRILLA();

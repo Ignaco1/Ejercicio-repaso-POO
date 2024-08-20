@@ -8,9 +8,6 @@ namespace Ejercicio_repaso_POO.Clases
 {
     public class CCaja_de_ahorro : CCuentas
     {
-        public void Mostrar_codigo()
-        {
-
-        }
+       
     }
 }

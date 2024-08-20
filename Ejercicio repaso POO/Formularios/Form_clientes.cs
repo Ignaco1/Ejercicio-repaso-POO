@@ -14,12 +14,14 @@ namespace Ejercicio_repaso_POO.Formularios
     public partial class Form_clientes : Form
     {
         string variable = "";
-        CListas clase_listas = new CListas();
+        CListas clase_listas;
         int indice;
 
-        public Form_clientes()
+        public Form_clientes(CListas listas)
         {
             InitializeComponent();
+            clase_listas = listas;
+
             MODO_LISTA();
             textBox6.Enabled = false;
         }
@@ -142,10 +144,34 @@ namespace Ejercicio_repaso_POO.Formularios
                 MessageBox.Show("Ingrese correctamente el nombre del cliente", "ERROR");
                 return;
             }
+
+            bool ValidaLetras()
+            {
+                return textBox2.Text.All(c => char.IsLetter(c) || char.IsWhiteSpace(c));
+            }
+
+            if (!ValidaLetras())
+            {
+                MessageBox.Show("Ingrese correctamente el nombre del cliente.\n\nEste solo debe contener letras", "ERROR");
+                return;
+            }
+
             //\n
+
             if (string.IsNullOrEmpty(textBox3.Text))
             {
-                MessageBox.Show("Ingrese correctamente el telefono del cliente", "ERROR");
+                MessageBox.Show("Ingrese correctamente el numero de telefono del cliente", "ERROR");
+                return;
+            }
+
+            bool ValidaTel()
+            {
+                return textBox3.Text.All(char.IsNumber);
+            }
+
+            if (!ValidaTel())
+            {
+                MessageBox.Show("Ingrese correctamente el numero de telefono del cliente.\n\nEste solo debe contener numeros", "ERROR");
                 return;
             }
 
@@ -157,7 +183,28 @@ namespace Ejercicio_repaso_POO.Formularios
 
             if (string.IsNullOrEmpty(textBox4.Text))
             {
-                MessageBox.Show("Ingrese correctamente el email del cliente", "ERROR");
+                MessageBox.Show("Ingrese correctamente el email del cliente\n\nEJ: nachocarignano@gmail.com", "ERROR");
+                return;
+            }
+
+            bool ValidaEmail()
+            {
+                if (!textBox4.Text.Contains("@"))
+                {
+                    return false;
+                }
+
+                if (textBox4.Text.EndsWith(".com") || textBox4.Text.EndsWith(".com.ar"))
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            if (!ValidaEmail())
+            {
+                MessageBox.Show("Ingrese correctamente el email del cliente\n\nEJ: nachocarignano@yahoo.com.ar", "ERROR");
                 return;
             }
 
@@ -165,7 +212,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
             if (!DateTime.TryParse(textBox5.Text, out fecha))
             {
-                MessageBox.Show("Ingrese correctamente la fecha de nacimiento del cliente, EJ: 24/03/05", "ERROR");
+                MessageBox.Show("Ingrese correctamente la fecha de nacimiento del cliente.\n\nEJ: 24/03/2005", "ERROR");
                 return;
             }
 
@@ -173,7 +220,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
             if (edad < 18)
             {
-                MessageBox.Show("Error en la fecha de nacimiento, el cliente debe ser mayor de 18 años", "ERROR");
+                MessageBox.Show("Este cliente no cumple con la edad requerida necesaria.\n\nPara poder continuar, el cliente debe ser mayor de 18 años", "ERROR");
                 return;
             }
 
@@ -217,6 +264,7 @@ namespace Ejercicio_repaso_POO.Formularios
         private void btn_volver_Click(object sender, EventArgs e)
         {
             this.Hide();
+            
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
