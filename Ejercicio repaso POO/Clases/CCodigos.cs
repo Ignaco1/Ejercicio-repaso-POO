@@ -10,6 +10,8 @@ namespace Ejercicio_repaso_POO.Clases
     {
         public static int ContCC = 0;
         public static int ContCA = 0;
+        public static int ContOD = 0;
+        public static int ContOE = 0;
 
         public static string Codigo(string codigo)
         {         
@@ -37,5 +39,20 @@ namespace Ejercicio_repaso_POO.Clases
 
             }
         }
+
+        public static string CodigoOperacion(string operacion)
+        {
+            if (operacion == "Extracción")
+            {
+                return "#OE" + ContOE.ToString("D3");
+            }
+            else if (operacion == "Deposito")
+            {
+                return "#OD" + ContOD.ToString("D3");
+            }
+
+            return operacion;
+        }
+
     }
 }

@@ -139,9 +139,9 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(139, 204);
+            textBox4.Location = new Point(139, 201);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(134, 23);
+            textBox4.Size = new Size(122, 23);
             textBox4.TabIndex = 15;
             // 
             // label5
@@ -177,7 +177,7 @@
             // 
             textBox3.Location = new Point(139, 157);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(134, 23);
+            textBox3.Size = new Size(148, 23);
             textBox3.TabIndex = 7;
             // 
             // textBox2
@@ -191,7 +191,7 @@
             // 
             textBox1.Location = new Point(139, 34);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(134, 23);
+            textBox1.Size = new Size(91, 23);
             textBox1.TabIndex = 5;
             // 
             // cb_tipo
@@ -205,7 +205,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(15, 207);
+            label4.Location = new Point(15, 204);
             label4.Name = "label4";
             label4.Size = new Size(39, 15);
             label4.TabIndex = 3;

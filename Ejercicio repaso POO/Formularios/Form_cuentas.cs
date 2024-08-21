@@ -54,6 +54,7 @@ namespace Ejercicio_repaso_POO.Formularios
         
         private void btn_agregar_Click(object sender, EventArgs e)
         {
+            cb_tipo.Enabled = true;
             variable = "A";
             MODO_CARGA();
             
@@ -83,6 +84,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
+            cb_tipo.Enabled = true;
             if (dataGridView1.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione una de las cuentas");
@@ -108,7 +110,6 @@ namespace Ejercicio_repaso_POO.Formularios
             textBox2.Text = "";
             textBox3.Text = "";
             textBox4.Text = "";
-
         }
 
         private bool ValidaDniYNombre()
@@ -165,7 +166,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
             #region VALIDACIONES
 
-            if (string.IsNullOrEmpty(cb_tipo.Text))
+            if (string.IsNullOrWhiteSpace(cb_tipo.Text))
             {
                 MessageBox.Show("Seleccione correctamente un tipo de cuenta", "ERROR");
                 return;
@@ -177,7 +178,7 @@ namespace Ejercicio_repaso_POO.Formularios
                 return;
             }
 
-            if (textBox2.Text.Length < 8)
+            if (textBox2.Text.Length < 7)
             {
                 MessageBox.Show("El numero de DNI ingresado es demasiado corto, ingrese un numero de DNI posible.\n\nEJ:46495234", "ERROR");
                 return;
@@ -237,14 +238,6 @@ namespace Ejercicio_repaso_POO.Formularios
 
             if (variable == "A")
             {
-                if (cb_tipo.Text == "Caja de ahorro")
-                {
-                    cuenta = new CCaja_de_ahorro();
-                }
-                else if (cb_tipo.Text == "Cuenta corriente")
-                {
-                    cuenta = new CCuenta_corriente();
-                }
 
                 CCodigos.SumarCont(cb_tipo.Text);
 

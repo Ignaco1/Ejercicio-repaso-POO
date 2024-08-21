@@ -127,7 +127,7 @@ namespace Ejercicio_repaso_POO.Formularios
                 return;
             }
 
-            if (textBox1.Text.Length < 8)
+            if (textBox1.Text.Length < 7)
             {
                 MessageBox.Show("El numero de DNI ingresado es demasiado corto, ingrese un numero de DNI posible.\n\nEJ:46495234", "ERROR");
                 return;
