@@ -195,6 +195,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
                 foreach (CCuentas cuentas in clase_listas.Lcuentas)
                 {
+                    double cantidad = cuentas.SALDO - operaciones.IMPORTE
                     if (cuentas.DNI == dni && cuentas.TIPO.Equals(cuenta, StringComparison.OrdinalIgnoreCase))
                     {
                         if (cuentas.SALDO == 0)
