@@ -195,9 +195,15 @@ namespace Ejercicio_repaso_POO.Formularios
 
                 foreach (CCuentas cuentas in clase_listas.Lcuentas)
                 {
-                    double cantidad = cuentas.SALDO - operaciones.IMPORTE
                     if (cuentas.DNI == dni && cuentas.TIPO.Equals(cuenta, StringComparison.OrdinalIgnoreCase))
                     {
+                        double saldo = cuentas.SALDO;
+                        double importe = Convert.ToDouble(textBox3.Text);
+                        double cantidad = saldo - importe;
+
+                        MessageBox.Show($"Saldo {saldo}, importe: {importe}");
+                        MessageBox.Show($"total: {cantidad}");
+
                         if (cuentas.SALDO == 0)
                         {
                             MessageBox.Show("Usted no posee saldo suficiente para realizar una extracción.\n\nSaldo de la cuenta = $ " + cuentas.SALDO);
@@ -208,7 +214,7 @@ namespace Ejercicio_repaso_POO.Formularios
                             MessageBox.Show("Usted no posee saldo suficiente para realizar esta extracción.\n\nSaldo de la cuenta = $ " + cuentas.SALDO);
                             return;
                         }
-                        else if (operaciones.IMPORTE > importeEX)
+                        else if (Convert.ToDouble(textBox3.Text) > importeEX)
                         {
                             MessageBox.Show("No es posible realizar esta operación.\n\nEsta operacion supera el monto maximo permitido por extracción.\n\nmonto maximo permitido por extracción = $ " + importeEX);
                             return;
@@ -226,7 +232,9 @@ namespace Ejercicio_repaso_POO.Formularios
                 {
                     if (cuentas.DNI == dni && cuentas.TIPO.Equals(cuenta, StringComparison.OrdinalIgnoreCase))
                     {
-                        double cantidad = cuentas.SALDO - operaciones.IMPORTE;
+                        double saldo = cuentas.SALDO;
+                        double importe = Convert.ToDouble(textBox3.Text);
+                        double cantidad = saldo - importe;
 
                         if (cantidad < importeEXD)
                         {
@@ -274,6 +282,7 @@ namespace Ejercicio_repaso_POO.Formularios
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
             MODO_LISTA();
+            LIMPIAR();
         }
     }
 }

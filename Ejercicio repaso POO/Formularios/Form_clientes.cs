@@ -140,6 +140,16 @@ namespace Ejercicio_repaso_POO.Formularios
                 return;
             }
 
+            string dni = textBox1.Text.Insert(2, ".").Insert(6, ".");
+            foreach (CClientes cliente in clase_listas.Lclientes)
+            {
+                if (cliente.DNI == dni)
+                {
+                    MessageBox.Show("Este cliente ya se encuntra registrado en el sistema", "ERROR");
+                    return;
+                }
+            }
+
             if (string.IsNullOrWhiteSpace(textBox2.Text))
             {
                 MessageBox.Show("Ingrese correctamente el nombre del cliente", "ERROR");
