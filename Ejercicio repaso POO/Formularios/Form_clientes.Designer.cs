@@ -33,7 +33,7 @@
             btn_eliminar = new Button();
             btn_mod = new Button();
             btn_agregar = new Button();
-            dataGridView1 = new DataGridView();
+            dataGridViewClientes = new DataGridView();
             groupBox2 = new GroupBox();
             btn_cancelar = new Button();
             btn_guardar = new Button();
@@ -50,7 +50,7 @@
             textBox1 = new TextBox();
             label1 = new Label();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,7 +60,7 @@
             groupBox1.Controls.Add(btn_eliminar);
             groupBox1.Controls.Add(btn_mod);
             groupBox1.Controls.Add(btn_agregar);
-            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(dataGridViewClientes);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(897, 401);
@@ -108,15 +108,15 @@
             btn_agregar.UseVisualStyleBackColor = true;
             btn_agregar.Click += btn_agregar_Click;
             // 
-            // dataGridView1
+            // dataGridViewClientes
             // 
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 22);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(885, 324);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewClientes.Location = new Point(6, 22);
+            dataGridViewClientes.Name = "dataGridViewClientes";
+            dataGridViewClientes.Size = new Size(885, 324);
+            dataGridViewClientes.TabIndex = 0;
+            dataGridViewClientes.CellClick += dataGridView1_CellClick;
             // 
             // groupBox2
             // 
@@ -269,7 +269,7 @@
             Text = "Form_clientes";
             Load += Form_clientes_Load;
             groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewClientes).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
@@ -298,5 +298,6 @@
         private Label label6;
         private Button btn_guardar;
         private Button btn_cancelar;
+        public DataGridView dataGridViewClientes;
     }
 }

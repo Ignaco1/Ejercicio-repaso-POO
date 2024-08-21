@@ -17,9 +17,18 @@ namespace Ejercicio_repaso_POO.Clases
 
         public string DNI { get; set; }
 
-        public DateTime FECHA { get; set; }
+        public string TIPO_CUENTA { get; set; }
 
-        public string TIPO { get; set; }
+        public string FECHA
+        {
+            get
+            {
+                DateTime hoy = DateTime.Now;
+                return hoy.ToString("dd/MM/yyyy");
+            }
+        }
+
+        public string TIPO_OPERACION { get; set; }
 
         public double IMPORTE { get; set; }
 

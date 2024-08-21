@@ -45,8 +45,9 @@ namespace Ejercicio_repaso_POO.Formularios
 
         public void ARMA_GRILLA()
         {
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = clase_listas.Lclientes;
+            dataGridViewClientes.DataSource = null;
+            dataGridViewClientes.DataSource = clase_listas.Lclientes;
+            
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
         private void btn_mod_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow == null)
+            if (dataGridViewClientes.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione a uno de los clientes", "ERROR");
                 return;
@@ -86,7 +87,7 @@ namespace Ejercicio_repaso_POO.Formularios
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.CurrentRow == null)
+            if (dataGridViewClientes.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione a uno de los clientes", "ERROR");
                 return;
@@ -294,13 +295,13 @@ namespace Ejercicio_repaso_POO.Formularios
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.CurrentRow == null)
+            if (dataGridViewClientes.CurrentRow == null)
             {
                 MessageBox.Show("Seleccione a uno de los clientes", "ERROR");
                 return;
             }
 
-            indice = dataGridView1.CurrentRow.Index;
+            indice = dataGridViewClientes.CurrentRow.Index;
         }
     }
 }

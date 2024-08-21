@@ -54,5 +54,17 @@ namespace Ejercicio_repaso_POO.Clases
             return operacion;
         }
 
+        public static void SumarContOpe(string codigo)
+        {
+            if (codigo == "Extracción")
+            {
+                ContOE += 1;
+            }
+            else if (codigo == "Deposito")
+            {
+                ContOD += 1;
+
+            }
+        }
     }
 }

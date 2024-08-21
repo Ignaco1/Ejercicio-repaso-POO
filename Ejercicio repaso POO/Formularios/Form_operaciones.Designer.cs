@@ -33,10 +33,10 @@
             btn_ope = new Button();
             dataGridView1 = new DataGridView();
             groupBox2 = new GroupBox();
+            cb_tipo_cue = new ComboBox();
             btn_cancelar = new Button();
             btn_guardar = new Button();
-            cb_tipo = new ComboBox();
-            textBox4 = new TextBox();
+            cb_tipo_ope = new ComboBox();
             textBox3 = new TextBox();
             textBox2 = new TextBox();
             textBox1 = new TextBox();
@@ -84,6 +84,7 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(6, 22);
             dataGridView1.Name = "dataGridView1";
@@ -92,10 +93,10 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(cb_tipo_cue);
             groupBox2.Controls.Add(btn_cancelar);
             groupBox2.Controls.Add(btn_guardar);
-            groupBox2.Controls.Add(cb_tipo);
-            groupBox2.Controls.Add(textBox4);
+            groupBox2.Controls.Add(cb_tipo_ope);
             groupBox2.Controls.Add(textBox3);
             groupBox2.Controls.Add(textBox2);
             groupBox2.Controls.Add(textBox1);
@@ -110,6 +111,14 @@
             groupBox2.TabIndex = 1;
             groupBox2.TabStop = false;
             groupBox2.Text = "Carga de datos";
+            // 
+            // cb_tipo_cue
+            // 
+            cb_tipo_cue.FormattingEnabled = true;
+            cb_tipo_cue.Location = new Point(172, 106);
+            cb_tipo_cue.Name = "cb_tipo_cue";
+            cb_tipo_cue.Size = new Size(121, 23);
+            cb_tipo_cue.TabIndex = 15;
             // 
             // btn_cancelar
             // 
@@ -131,28 +140,20 @@
             btn_guardar.UseVisualStyleBackColor = true;
             btn_guardar.Click += btn_guardar_Click;
             // 
-            // cb_tipo
+            // cb_tipo_ope
             // 
-            cb_tipo.FormattingEnabled = true;
-            cb_tipo.Location = new Point(172, 137);
-            cb_tipo.Name = "cb_tipo";
-            cb_tipo.Size = new Size(121, 23);
-            cb_tipo.TabIndex = 9;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(172, 171);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(121, 23);
-            textBox4.TabIndex = 8;
+            cb_tipo_ope.FormattingEnabled = true;
+            cb_tipo_ope.Location = new Point(172, 145);
+            cb_tipo_ope.Name = "cb_tipo_ope";
+            cb_tipo_ope.Size = new Size(121, 23);
+            cb_tipo_ope.TabIndex = 9;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(172, 103);
+            textBox3.Location = new Point(172, 182);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(109, 23);
-            textBox3.TabIndex = 7;
-            textBox3.Text = "//";
+            textBox3.Size = new Size(121, 23);
+            textBox3.TabIndex = 8;
             // 
             // textBox2
             // 
@@ -171,7 +172,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 174);
+            label5.Location = new Point(6, 185);
             label5.Name = "label5";
             label5.Size = new Size(121, 15);
             label5.TabIndex = 4;
@@ -180,7 +181,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(6, 140);
+            label4.Location = new Point(6, 148);
             label4.Name = "label4";
             label4.Size = new Size(102, 15);
             label4.TabIndex = 3;
@@ -189,11 +190,11 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 106);
+            label3.Location = new Point(6, 109);
             label3.Name = "label3";
-            label3.Size = new Size(110, 15);
+            label3.Size = new Size(85, 15);
             label3.TabIndex = 2;
-            label3.Text = "Fecha de operación";
+            label3.Text = "Tipo de cuenta";
             // 
             // label2
             // 
@@ -243,11 +244,11 @@
         private Label label1;
         private TextBox textBox1;
         private Label label5;
-        private ComboBox cb_tipo;
-        private TextBox textBox4;
+        private ComboBox cb_tipo_ope;
         private TextBox textBox3;
         private TextBox textBox2;
         private Button btn_guardar;
         private Button btn_cancelar;
+        private ComboBox cb_tipo_cue;
     }
 }
