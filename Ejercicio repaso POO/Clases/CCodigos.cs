@@ -13,8 +13,6 @@ namespace Ejercicio_repaso_POO.Clases
         public static int ContOD = 0;
         public static int ContOE = 0;
 
-        1234
-
         public static string Codigo(string codigo)
         {         
             if (codigo == "Cuenta corriente")
